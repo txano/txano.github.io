@@ -1,6 +1,6 @@
 
 TITLE: 
-Shift - 100% Fully Responsive Free HTML5 Bootstrap Template
+Neat - 100% Fully Responsive Free HTML5 Bootstrap Template
 
 AUTHOR:
 DESIGNED & DEVELOPED by FreeHTML5.co
@@ -39,7 +39,15 @@ http://daneden.me/animate
 jQuery Waypoint
 https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
 
+Flexslider
+http://flexslider.woothemes.com/
+
+jQuery countTo
+https://github.com/mhuggins/jquery-countTo/
+
+Magnific Popup
+http://dimsemenov.com/plugins/magnific-popup/
+
 Demo Images:
 http://unsplash.com
-http://blog.gessato.com
 

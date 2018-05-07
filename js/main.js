@@ -2,6 +2,27 @@
 	
 	'use strict';
 
+	var isMobile = {
+		Android: function() {
+			return navigator.userAgent.match(/Android/i);
+		},
+			BlackBerry: function() {
+			return navigator.userAgent.match(/BlackBerry/i);
+		},
+			iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		},
+			Opera: function() {
+			return navigator.userAgent.match(/Opera Mini/i);
+		},
+			Windows: function() {
+			return navigator.userAgent.match(/IEMobile/i);
+		},
+			any: function() {
+			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		}
+	};
+
 	var mobileMenuOutsideClick = function() {
 
 		$(document).click(function (e) {
@@ -82,8 +103,7 @@
 
 		});
 	};
-
-
+	
 
 	var contentWayPoint = function() {
 		var i = 0;
@@ -143,6 +163,7 @@
 
 	};
 
+
 	var goToTop = function() {
 
 		$('.js-gotop').on('click', function(event){
@@ -183,15 +204,54 @@
 		});
 	};
 
-	
+
+	var counterWayPoint = function() {
+		if ($('#fh5co-counter').length > 0 ) {
+			$('#fh5co-counter').waypoint( function( direction ) {
+										
+				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+					setTimeout( counter , 400);					
+					$(this.element).addClass('animated');
+				}
+			} , { offset: '90%' } );
+		}
+	};
+
+	var sliderMain = function() {
+		
+	  	$('#fh5co-hero .flexslider').flexslider({
+			animation: "fade",
+			slideshowSpeed: 5000,
+			directionNav: true,
+			start: function(){
+				setTimeout(function(){
+					$('.slider-text').removeClass('animated fadeInUp');
+					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
+				}, 500);
+			},
+			before: function(){
+				setTimeout(function(){
+					$('.slider-text').removeClass('animated fadeInUp');
+					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
+				}, 500);
+			}
+
+	  	});
+
+	};
+
+
+
 	$(function(){
 		mobileMenuOutsideClick();
 		offcanvasMenu();
 		burgerMenu();
 		contentWayPoint();
+		sliderMain();
 		dropdown();
 		goToTop();
 		loaderPage();
+		counterWayPoint();
 	});
 
 
